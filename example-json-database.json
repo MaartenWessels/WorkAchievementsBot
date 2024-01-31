@@ -1,0 +1,63 @@
+{
+  "age_ranges": {
+    "12-15": {
+      "achievements": {
+        "achievement_1": {
+          "coins": 2,
+          "id": "achievement_1",
+          "title": "Achievement 1"
+        },
+        "achievement_2": {
+          "coins": 1,
+          "id": "achievement_2",
+          "title": "Achievement 2"
+        }
+      }
+    },
+    "16-17": {
+      "achievements": {
+        "achievement_3": {
+          "coins": 1,
+          "id": "achievement_3",
+          "title": "Achievement 3"
+        }
+      }
+    },
+  },
+  "round": 1,
+  "teams": {
+    "blauw": {
+      "extra_coins": 2,
+      "title": "Blauw"
+    },
+    "groen": {
+      "extra_coins": 2,
+      "title": "Groen"
+    },
+    "oranje": {
+      "extra_coins": 2,
+      "title": "Oranje"
+    },
+    "rood": {
+      "extra_coins": 4,
+      "title": "Rood"
+    }
+  },
+  "users": {
+    "9999999": {
+      "achievements": {
+        "1": [
+          "achievement_1",
+          "achievement_2"
+        ],
+        "added_at": "1/30/2024, 4:33:39 PM"
+      },
+      "age_range": "12-15",
+      "first_name": "User",
+      "id": 9999999,
+      "last_name": "Surname",
+      "team": "blauw",
+      "administrator": false
+    }
+  }
+}

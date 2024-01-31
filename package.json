@@ -1,0 +1,18 @@
+{
+  "name": "work-achievements-bot",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "cross-env NODE_ENV=development node src/index.js"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase-admin": "^12.0.0",
+    "fs": "^0.0.1-security",
+    "node-cron": "^3.0.3",
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}
