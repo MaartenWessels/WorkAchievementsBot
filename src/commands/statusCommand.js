@@ -14,10 +14,9 @@ function statusCommand(bot) {
     ])
 
     const coinsPerTeam = {}
-    const totalCoinsPerTeam = {}
 
     for (const team in teams) {
-      coinsPerTeam[team] = totalCoinsPerTeam[team] = teams[team].extra_coins
+      coinsPerTeam[team] = teams[team].extra_coins[currentRound]
     }
 
     for (let user of Object.values(users)) {
@@ -25,20 +24,15 @@ function statusCommand(bot) {
       user = setDefaultUser(user, currentRound)
 
       const processAchievements = (round) => {
-        Object.values(user.achievements[round]).forEach((achievement) => {
-          const achievementDetails = userAgeRange.achievements[achievement]
-          if (achievementDetails?.coins) {
-            totalCoinsPerTeam[user.team] += achievementDetails.coins
-          }
-          coinsPerTeam[user.team] += achievementDetails.coins
-        })
+        if (user.achievements[round]) {
+          Object.values(user.achievements[round]).forEach((achievement) => {
+            const achievementDetails = userAgeRange.achievements[achievement]
+            coinsPerTeam[user.team] += achievementDetails.coins
+          })
+        }
       }
 
       processAchievements(currentRound)
-
-      if (currentRound % 2 === 0 && currentRound !== 1) {
-        processAchievements(currentRound - 1)
-      }
     }
 
     const getMaxTeam = (teamObj) => {
@@ -46,9 +40,8 @@ function statusCommand(bot) {
     }
 
     const roundWinner = getMaxTeam(coinsPerTeam)
-    // const totalWinner = getMaxTeam(totalCoinsPerTeam)
 
-    const statusMessage = `Status van de huidige ronde:\n\n${Object.keys(coinsPerTeam)
+    const statusMessage = `Status van de huidige maand:\n\n${Object.keys(coinsPerTeam)
       .map(
         (team) =>
           `${teamColorEmoji[team]} *${teamTitles[team]}*: ${coinsPerTeam[team]} coins ${
